@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    align-items: center;
+    background-image: url(../../../public/assets/book.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    min-height: 120vh;
+    padding-left: 100px;
+    font-size: 38px;
+}

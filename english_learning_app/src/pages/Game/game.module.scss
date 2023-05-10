@@ -1,0 +1,17 @@
+//@import '../../style/mixins';
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    height: 85%;
+    background-color: rgb(198, 198, 218);
+
+    .prevnext {
+        height: 15%;
+        border-radius: 30%;
+        background-color: rgb(193, 241, 193);
+    }
+}
