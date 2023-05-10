@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/English-learning-app/static/css/main.19c374e6.css",
+    "main.js": "/English-learning-app/static/js/main.716db452.js",
+    "static/media/book.jpg": "/English-learning-app/static/media/book.8fdd49c6b3f67c851c24.jpg",
+    "index.html": "/English-learning-app/index.html",
+    "main.19c374e6.css.map": "/English-learning-app/static/css/main.19c374e6.css.map",
+    "main.716db452.js.map": "/English-learning-app/static/js/main.716db452.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19c374e6.css",
+    "static/js/main.716db452.js"
+  ]
+}
