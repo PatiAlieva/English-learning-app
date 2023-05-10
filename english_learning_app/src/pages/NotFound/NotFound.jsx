@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import CSSModules from 'react-css-modules';
+import style from './notfound.module.scss';
 
-export default function NotFound() {
+function NotFound() {
   return (
-    <div>NotFound</div>
+    <div styleName='notfound'></div>
   )
 }
+
+export default CSSModules(NotFound, style);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import CSSModules from 'react-css-modules';
-import style from '../../components/Main/main.module.scss';
+import style from './main.module.scss';
 
 function Home() {
   return (
