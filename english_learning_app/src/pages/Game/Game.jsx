@@ -7,6 +7,8 @@ import style from './game.module.scss';
 
 function Game() {
   const [count, setCount] = useState(0)
+  const [learnedWordsIndex, setlearnedWordsIndex] = useState(0);
+  const {learnedWords, setlearnedWords} = useState([]);
 
   //Prev card
   const handlePrev = () => {
@@ -25,11 +27,25 @@ function Game() {
     };
   }
 
+  //счётчик выученных слов
+  const handleLearned = () => {
+    if (!learnedWords.includes(data)) {
+      learnedWords.push(data);
+      setlearnedWordsIndex(learnedWordsIndex + 1);
+    }
+  };
+  
+
   return (
     <div styleName='cards'>
+      <div styleName='cards_counter'>Learned words: 
+        <p> {" "}</p>
+        <span className='counter_words'>{learnedWordsIndex}</span>
+      </div>
       <button onClick={handlePrev} styleName='prevnext'>prev</button>
       <Cards data = {data[count]} count={count} key={count}/>
       <button onClick={handleNext} styleName='prevnext'>next</button>
+      <button onClick={handleLearned}>I know this word</button>
     </div>
   );
 };

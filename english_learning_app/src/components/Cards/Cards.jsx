@@ -5,10 +5,11 @@ import style from './cards.module.scss';
 function Cards({data}, count) {
   const {english, transcription, russian, id} = data;
   // const [flag, setFlag] = useState(false)
+
   const [isVisible, setVisible] = useState(false);
   const handleShow = () => {
     setVisible(!isVisible);
-};
+  };
 
    //фокус на кнопку
   const btnRef = useRef();
@@ -32,7 +33,6 @@ function Cards({data}, count) {
         <button ref={btnRef} className={isVisible ? "btnVisible word" : "btnTranslate"} disabled={isVisible} onClick={handleShow}>
           {isVisible ? russian : "Проверить"}
         </button>
-        <p >I know this word</p>
       </div>
     </div>
   );

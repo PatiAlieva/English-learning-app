@@ -19,10 +19,7 @@
         // text-align: center;
     }
 }
-.animation {
-    animation-name: test;
-    animation-duration: 3s;
-}
+
 @keyframes test {
     0%{
         transform: scale(1.2);
@@ -33,6 +30,10 @@
     100%{
         transform: scale(1.0);
     }
+}
+.animation {
+    animation-name: test;
+    animation-duration: 3s;
 }
 
 button {

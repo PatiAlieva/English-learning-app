@@ -14,4 +14,11 @@
         border-radius: 30%;
         background-color: rgb(193, 241, 193);
     }
+    &_counter {
+        display: flex;
+        height: 75%;
+        // width: 20%;
+        background-color: pink;
+        // align-items: center;
+    }
 }
