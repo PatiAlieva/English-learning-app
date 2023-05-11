@@ -8,12 +8,13 @@ function Cards({data}, count) {
   const [isVisible, setVisible] = useState(false);
   const handleShow = () => {
     setVisible(!isVisible);
+};
 
-  };
+   //фокус на кнопку
   const btnRef = useRef();
 
   useEffect(() => {
-    console.log(btnRef);
+    // console.log(btnRef);
     btnRef.current.focus()
   },[count])
 
@@ -22,6 +23,7 @@ function Cards({data}, count) {
   // }
   //      {/* {!flag ? <button onClick = {getTranslate}>SEND ME</button> : <div>{props.russian}</div>} */}
 
+  //отрисовка карточки
   return (
     <div styleName='card' className='animation'>
       <div styleName='card_container'>
@@ -30,6 +32,7 @@ function Cards({data}, count) {
         <button ref={btnRef} className={isVisible ? "btnVisible word" : "btnTranslate"} disabled={isVisible} onClick={handleShow}>
           {isVisible ? russian : "Проверить"}
         </button>
+        <p >I know this word</p>
       </div>
     </div>
   );

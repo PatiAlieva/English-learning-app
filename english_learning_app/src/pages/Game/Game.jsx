@@ -8,15 +8,17 @@ import style from './game.module.scss';
 function Game() {
   const [count, setCount] = useState(0)
 
-  function handlePrev() {
-    if (setCount > 0) {
-      setCount(count - 1)
+  //Prev card
+  const handlePrev = () => {
+    if (count - 1 < 0) {
+      setCount(data.length - 1);
     } else {
-      setCount(data.length - 1)
+      setCount(count - 1);
     };
   }
-  function handleNext() {
-    if (setCount === data.length - 1) {
+  //Next card
+  const handleNext = () => {
+    if (count + 1 >= data.length) {
       setCount(0);
     } else {
       setCount(count + 1)

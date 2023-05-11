@@ -1,3 +1,4 @@
+@import '../../style/vars';
 .footer {
     display: flex;
     justify-content: center;
@@ -5,5 +6,5 @@
     min-height: 10%;
     flex-shrink: 0;
     padding: 0 30px 0;
-    background-color:rgb(61, 163, 252);
+    background-color:$header-color;
 }

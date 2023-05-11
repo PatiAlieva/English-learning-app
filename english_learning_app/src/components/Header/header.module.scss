@@ -1,3 +1,4 @@
+@import '../../style/vars';
 .header {
     position: sticky;
     top: 0px;
@@ -6,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 30px 0;
-    background-color: rgb(61, 163, 252);
+    background-color: $header-color;
 
     &_nav {
         display: flex;
