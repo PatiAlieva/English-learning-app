@@ -11,8 +11,17 @@
 
     background-color: $header-color;
 
+    &_logo {
+        display: flex;
+        align-items: center;
+    }
+
     &_nav {
         display: flex;
+
+        &_menu {
+            background-color: blue;
+        }
     }
 }
 ul {

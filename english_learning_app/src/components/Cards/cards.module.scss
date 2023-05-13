@@ -4,6 +4,8 @@
     justify-content: center;
     // align-items: center;
     background: rgb(248, 196, 196);
+    animation-name: test;
+    animation-duration: 3s;
 
     &_container {
         display: flex;
@@ -11,29 +13,39 @@
         justify-content:space-around;
         align-items: center;
         background-color: rgb(224, 224, 247);
+
         min-width: 40vw;
         min-height: 60vh;
         padding: 5px;
         margin: 10px;
         border-radius: 30%;
+
         // text-align: center;
     }
 }
 
 @keyframes test {
     0%{
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     50%{
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
     100%{
         transform: scale(1.0);
     }
 }
-.animation {
-    animation-name: test;
-    animation-duration: 3s;
+.word {
+    font-size: large;
+}
+.transcription {
+    font-size: medium;
+}
+.btnVisible {
+    background-color: aqua;
+}
+.btnTranslate {
+    background-color: azure;
 }
 
 button {

@@ -23,11 +23,11 @@ function Header() {
   return (
     <header>
       <div styleName='header'>
-        <Link to = "/" className='logo'>
+        <Link to = "/" styleName='header_logo'>
           logo
         </Link>
         <nav styleName='header_nav'>
-          <ul className='header_nav_menu'>
+          <ul styleName='header_nav_menu'>
             <li><NavLink to = "/">Home</NavLink></li>
             <li><NavLink to = "/dictionary">Dictionary</NavLink></li>
             <li><NavLink to = "/game">Game</NavLink></li>

@@ -26,13 +26,14 @@ function Cards({data}, count) {
 
   //отрисовка карточки
   return (
-    <div styleName='card' className='animation'>
+    <div styleName='card'>
       <div styleName='card_container'>
-        <div className='word'>{english}</div>
-        <div className='transcription'>{transcription}</div>
-        <button ref={btnRef} className={isVisible ? "btnVisible word" : "btnTranslate"} disabled={isVisible} onClick={handleShow}>
+        <div styleName='word'>{english}</div>
+        <div styleName='transcription'>{transcription}</div>
+        <button ref={btnRef} styleName={isVisible ? "btnVisible" : "btnTranslate"} disabled={isVisible} onClick={handleShow}>
           {isVisible ? russian : "Проверить"}
         </button>
+        <button>I know this word</button>
       </div>
     </div>
   );

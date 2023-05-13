@@ -107,16 +107,16 @@ const saveChange = () => {
 return (
   <tr>
       <td>{isError.english ? <div styleName="error">{isError.english}</div> : ""}
-          {isEdit ? <input type="text" className={state.english && !isError.english ? "" : "noValid"} value={state.english} onChange={handleChange} name="english" /> : state.english}</td>
+          {isEdit ? <input type="text" styleName={state.english && !isError.english ? "" : "noValid"} value={state.english} onChange={handleChange} name="english" /> : state.english}</td>
       <td>{isError.transcription ? <div styleName="error">{isError.transcription}</div> : ''}
-          {isEdit ? <input type="text" className={state.transcription && !isError.transcription ? "" : "noValid"} value={state.transcription} onChange={handleChange} name="transcription" /> : state.transcription}</td>
+          {isEdit ? <input type="text" styleName={state.transcription && !isError.transcription ? "" : "noValid"} value={state.transcription} onChange={handleChange} name="transcription" /> : state.transcription}</td>
       <td>{isError.russian ? <div styleName="error">{isError.russian}</div> : ''}
-          {isEdit ? <input type="text" className={state.russian && !isError.russian ? "" : "noValid"} value={state.russian} onChange={handleChange} name="russian" /> : state.russian}</td>
+          {isEdit ? <input type="text" styleName={state.russian && !isError.russian ? "" : "noValid"} value={state.russian} onChange={handleChange} name="russian" /> : state.russian}</td>
       <td>{isError.tags ? <div styleName="error">{isError.tags}</div> : ''}
-          {isEdit ? <input type="text" className={state.tags && !isError.tags ? "" : "noValid"} value={state.tags} onChange={handleChange} name="tags" /> : state.tags}</td>
+          {isEdit ? <input type="text" styleName={state.tags && !isError.tags ? "" : "noValid"} value={state.tags} onChange={handleChange} name="tags" /> : state.tags}</td>
       <td>
-          {isEdit ? <button className="button btnSave" onClick={saveChange} disabled={!isValid}></button>
-              : <button className="button btnEdit" onClick={editChange}>Edit</button>}
+          {isEdit ? <button styleName="btnSave" onClick={saveChange} disabled={!isValid}></button>
+              : <button styleName="btnEdit" onClick={editChange}>Edit</button>}
           <button className="button btnDelete" onClick={deleteChange}>Delete</button>
       </td>
   </tr>

@@ -34,6 +34,12 @@ function Game() {
       setlearnedWordsIndex(learnedWordsIndex + 1);
     }
   };
+
+  // const IndexLearnedWords = () => {
+  //   learnedWordsIndex.setState({
+
+  //   })
+  // }
   
 
   return (
@@ -45,7 +51,7 @@ function Game() {
       <button onClick={handlePrev} styleName='prevnext'>prev</button>
       <Cards data = {data[count]} count={count} key={count}/>
       <button onClick={handleNext} styleName='prevnext'>next</button>
-      <button onClick={handleLearned}>I know this word</button>
+      {/* <button onClick={handleLearned}>I know this word</button> */}
     </div>
   );
 };
