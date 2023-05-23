@@ -21,6 +21,14 @@
         border-radius: 30%;
 
         // text-align: center;
+
+        &_word {
+            font-size: large;
+        }
+        &_transcription {
+            font-size: medium;
+        }
+
     }
 }
 
@@ -35,12 +43,6 @@
         transform: scale(1.0);
     }
 }
-.word {
-    font-size: large;
-}
-.transcription {
-    font-size: medium;
-}
 .btnVisible {
     background-color: aqua;
 }
@@ -49,7 +51,7 @@
 }
 
 button {
-    height: 15%;
+    height: 40px;
     border-radius: 30%;
     font-weight: bold;
 }

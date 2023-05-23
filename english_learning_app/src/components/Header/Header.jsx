@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {NavLink, Link} from "react-router-dom";
 import CSSModules from 'react-css-modules';
+//import img from './cat playing with wool ball.png'
 import style from './header.module.scss';
 
 function Header() {
@@ -23,8 +24,10 @@ function Header() {
   return (
     <header>
       <div styleName='header'>
-        <Link to = "/" styleName='header_logo'>
-          logo
+        <Link to = "/" styleName='header_logo'>logo
+          {/* <div styleName='header_logo_img'>
+            <img src={img}/>
+          </div> */}
         </Link>
         <nav styleName='header_nav'>
           <ul styleName='header_nav_menu'>

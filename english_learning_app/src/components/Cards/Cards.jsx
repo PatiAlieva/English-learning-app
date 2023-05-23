@@ -2,38 +2,35 @@ import React, { useState, useEffect, useRef } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './cards.module.scss';
 
-function Cards({data}, count) {
-  const {english, transcription, russian, id} = data;
-  // const [flag, setFlag] = useState(false)
+function Cards({data}, {onCount}) {
+  const {id, english, transcription, russian, count} = data;
 
+  //перевод слова при клике на кнопку
   const [isVisible, setVisible] = useState(false);
+
   const handleShow = () => {
     setVisible(!isVisible);
+    onCount(data[count].id);
   };
 
    //фокус на кнопку
   const btnRef = useRef();
 
   useEffect(() => {
-    // console.log(btnRef);
     btnRef.current.focus()
-  },[count])
-
-  // function getTranslate() {
-  //   setFlag(true)
-  // }
-  //      {/* {!flag ? <button onClick = {getTranslate}>SEND ME</button> : <div>{props.russian}</div>} */}
+  },[english])
 
   //отрисовка карточки
   return (
     <div styleName='card'>
       <div styleName='card_container'>
-        <div styleName='word'>{english}</div>
-        <div styleName='transcription'>{transcription}</div>
-        <button ref={btnRef} styleName={isVisible ? "btnVisible" : "btnTranslate"} disabled={isVisible} onClick={handleShow}>
-          {isVisible ? russian : "Проверить"}
-        </button>
-        <button>I know this word</button>
+        <div styleName='card_container_word'>{english}</div>
+        <div styleName='card_container_transcription'>{transcription}</div>
+        <div onClick={handleShow} disabled={isVisible}>
+          {isVisible ? <div styleName='btnTranslate'>{russian}</div> :
+          <button ref={btnRef} styleName='btnVisible'>Проверить</button>}
+        </div>
+        <div onClick={onCount}><p>I know this word</p></div>
       </div>
     </div>
   );

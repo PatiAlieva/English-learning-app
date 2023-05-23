@@ -1,5 +1,14 @@
 .table {
     display: flex;
     justify-content: center;
-    height: 90%;
+    //height: 100%;
+
+    &_container {
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        //height: inherit;
+        margin-top: 80px;
+    }
 }

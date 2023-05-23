@@ -5,8 +5,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-
-    height: 90%;
+    min-height: 95%;
     background-color: rgb(198, 198, 218);
 
     .prevnext {
@@ -21,4 +20,7 @@
         background-color: pink;
         // align-items: center;
     }
+}
+.counter_words {
+    background-color: orangered;
 }

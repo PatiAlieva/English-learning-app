@@ -7,7 +7,7 @@ import style from './dictionary.module.scss';
 function Dictionary() {
   return (
     <div styleName="table">
-      <table className='table_container'>
+      <table styleName='table_container'>
         <thead>
           <tr>
             <th>English</th>

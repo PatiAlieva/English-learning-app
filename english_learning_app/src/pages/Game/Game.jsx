@@ -6,9 +6,11 @@ import CSSModules from 'react-css-modules';
 import style from './game.module.scss';
 
 function Game() {
-  const [count, setCount] = useState(0)
-  const [learnedWordsIndex, setlearnedWordsIndex] = useState(0);
-  const {learnedWords, setlearnedWords} = useState([]);
+  const [count, setCount] = useState(0)//handlePrev & Next
+  
+  const {learnedWords, setlearnedWords} = useState(false);//handleCount
+  const [learnedWordsIndex, setlearnedWordsIndex] = useState([]);//
+  const [vocabulary, setVocabulary] = useState(0);//
 
   //Prev card
   const handlePrev = () => {
@@ -28,30 +30,36 @@ function Game() {
   }
 
   //счётчик выученных слов
-  const handleLearned = () => {
-    if (!learnedWords.includes(data)) {
-      learnedWords.push(data);
-      setlearnedWordsIndex(learnedWordsIndex + 1);
+  const handleCount = (id) => {
+    const dataArr = [...learnedWordsIndex];
+    dataArr.push(id);
+    let result = [];
+
+    dataArr.forEach((el) => {
+      if (!result.includes(el)) {
+        result.push(el);
+      }
+    })
+
+    setlearnedWordsIndex(result);
+    setVocabulary(result.length);
+
+    if (result.length === data.length) {
+      setlearnedWords(true)
     }
   };
-
-  // const IndexLearnedWords = () => {
-  //   learnedWordsIndex.setState({
-
-  //   })
-  // }
   
 
   return (
     <div styleName='cards'>
-      <div styleName='cards_counter'>Learned words: 
-        <p> {" "}</p>
-        <span className='counter_words'>{learnedWordsIndex}</span>
+      <div styleName='cards_counter'>
+        {learnedWords ? <span>You've learnt all the words!</span> :
+        <span>Learned words: {vocabulary} / {data.length}</span>}
       </div>
       <button onClick={handlePrev} styleName='prevnext'>prev</button>
-      <Cards data = {data[count]} count={count} key={count}/>
+      <Cards data = {data[count]} count={count} onCount={handleCount} key={count}/>
       <button onClick={handleNext} styleName='prevnext'>next</button>
-      {/* <button onClick={handleLearned}>I know this word</button> */}
+      <button onClick={handleCount}>I know this word</button>
     </div>
   );
 };
