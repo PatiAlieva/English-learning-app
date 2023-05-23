@@ -10,7 +10,11 @@ function Game() {
   
   const {learnedWords, setlearnedWords} = useState(false);//handleCount
   const [learnedWordsIndex, setlearnedWordsIndex] = useState([]);//
-  const [vocabulary, setVocabulary] = useState(0);//
+  const [wordsNumber, setWordsNumber] = useState(0);
+  
+  const [vocabulary, setVocabulary] = useState(data);//
+
+
 
   //Prev card
   const handlePrev = () => {
@@ -42,9 +46,9 @@ function Game() {
     })
 
     setlearnedWordsIndex(result);
-    setVocabulary(result.length);
+    setWordsNumber(result.length);
 
-    if (result.length === data.length) {
+    if (result.length === vocabulary.length) {
       setlearnedWords(true)
     }
   };
@@ -54,12 +58,18 @@ function Game() {
     <div styleName='cards'>
       <div styleName='cards_counter'>
         {learnedWords ? <span>You've learnt all the words!</span> :
-        <span>Learned words: {vocabulary} / {data.length}</span>}
+        <span>Learned words: {wordsNumber} / {vocabulary.length}</span>}
       </div>
       <button onClick={handlePrev} styleName='prevnext'>prev</button>
-      <Cards data = {data[count]} count={count} onCount={handleCount} key={count}/>
+      <Cards 
+        english={vocabulary[count].english}
+        transcription={vocabulary[count].transcription}
+        russian={vocabulary[count].russian}  
+        count={count} 
+        handleCount={handleCount} 
+        vocabulary={vocabulary} 
+        key={count}/>
       <button onClick={handleNext} styleName='prevnext'>next</button>
-      <button onClick={handleCount}>I know this word</button>
     </div>
   );
 };

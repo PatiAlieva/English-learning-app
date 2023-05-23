@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './cards.module.scss';
 
-function Cards({data}, {onCount}) {
-  const {id, english, transcription, russian, count} = data;
+function Cards(props) {
+  const {english, transcription, russian, count, vocabulary, handleCount} = props;
 
   //перевод слова при клике на кнопку
   const [isVisible, setVisible] = useState(false);
 
   const handleShow = () => {
     setVisible(!isVisible);
-    onCount(data[count].id);
+    handleCount(vocabulary[count].id);
   };
 
    //фокус на кнопку
@@ -30,7 +30,6 @@ function Cards({data}, {onCount}) {
           {isVisible ? <div styleName='btnTranslate'>{russian}</div> :
           <button ref={btnRef} styleName='btnVisible'>Проверить</button>}
         </div>
-        <div onClick={onCount}><p>I know this word</p></div>
       </div>
     </div>
   );
