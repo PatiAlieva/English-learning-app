@@ -11,4 +11,8 @@
     .active {
         color: red;
     }
+
+    button:focus {
+        background-color: yellow;
+    }
 }
