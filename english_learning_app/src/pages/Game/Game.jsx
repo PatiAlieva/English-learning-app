@@ -76,13 +76,3 @@ function Game() {
 
 export default CSSModules(Game, style);
 
-        // {data.map((item) =>
-        // <Cards
-        //   isEdited={false}
-        //   key={item.id}
-        //   english={item.english}
-        //   russian={item.russian}
-        //   transcription={item.transcription}>
-        // </Cards>
-        // )
-        // }

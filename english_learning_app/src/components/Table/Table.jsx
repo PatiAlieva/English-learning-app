@@ -4,9 +4,6 @@ import { useState, useEffect } from 'react';
 import style from './table.module.scss';
 
 function Table(props) {
-  //const [isEdit, setIsEdit] = useState(true);
-  //const {english, transcription, russian, tags} = props;
-
   const [isEdit, setEdit] = useState(props.isEdit);
   const [state, setState] = useState ({
     english: props.english,
@@ -122,43 +119,4 @@ return (
   </tr>
 );
 };
-
-  // function getEditWords(){
-  //   setIsEdit(!isEdit)
-  // }
-
-//   return (
-//     <div styleName='table'>
-//       {isEdit ?
-//           <table styleName='table_style'>
-//             <tr>
-//               <td>{english}</td>
-//               <td>{transcription}</td>
-//               <td>{russian}</td>
-//               <td>{tags}</td>
-//             </tr>
-//           </table>
-//           :
-//           <div>
-//             <div><input type="text" defaultValue={english}/></div>
-//             <div><input type="text" defaultValue={transcription}/></div>
-//             <div><input type="text" defaultValue={russian}/></div>
-//             <div><input type="text" defaultValue={tags}/></div>
-//           </div>
-//     }
-//       <button onClick={getEditWords}>Edit</button>
-
-//       {/* <div className='tableChanges'>
-//         <button className='saveButton'>
-//           <img alt="" />
-//         </button>
-//         <button className='deleteButton'>
-//           <img alt="" />
-//         </button>
-//     </div> */}
-
-//     </div>
-//   )
-// }
-
 export default CSSModules(Table, style);
