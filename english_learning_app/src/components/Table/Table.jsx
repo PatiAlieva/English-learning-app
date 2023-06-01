@@ -115,7 +115,7 @@ return (
       <td>{isError.tags ? <div styleName="error">{isError.tags}</div> : ''}
           {isEdit ? <input type="text" styleName={state.tags && !isError.tags ? "" : "noValid"} value={state.tags} onChange={handleChange} name="tags" /> : state.tags}</td>
       <td>
-          {isEdit ? <button styleName="btnSave" onClick={saveChange} disabled={!isValid}></button>
+          {isEdit ? <button styleName="btnSave" onClick={saveChange} disabled={!isValid}>Save</button>
               : <button styleName="btnEdit" onClick={editChange}>Edit</button>}
           <button className="button btnDelete" onClick={deleteChange}>Delete</button>
       </td>

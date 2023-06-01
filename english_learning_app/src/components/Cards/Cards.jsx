@@ -11,6 +11,7 @@ function Cards(props) {
   const handleShow = () => {
     setVisible(!isVisible);
     handleCount(vocabulary[count].id);
+
   };
 
    //фокус на кнопку
