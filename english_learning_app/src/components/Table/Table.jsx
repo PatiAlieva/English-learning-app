@@ -114,7 +114,7 @@ return (
       <td>
           {isEdit ? <button styleName="btnSave" onClick={saveChange} disabled={!isValid}>Save</button>
               : <button styleName="btnEdit" onClick={editChange}>Edit</button>}
-          <button className="button btnDelete" onClick={deleteChange}>Delete</button>
+          <button styleName="btnDelete" onClick={deleteChange}>Delete</button>
       </td>
   </tr>
 );
