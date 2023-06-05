@@ -4,11 +4,22 @@
     //height: 100%;
 
     &_container {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         //height: inherit;
         margin-top: 80px;
+    }
+
+    &_header {
+        display: flex;
+        gap: 1rem;
+
+        &_cell {
+            display: flex;
+            font-weight: bolder;
+            padding: 5px;
+        }
     }
 }

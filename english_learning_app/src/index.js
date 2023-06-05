@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './style/index.scss';
 import App from './pages/App/App';
+import { ContextProvider } from './Context/MyContext';
+import './style/index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // оборачиваем всё наше приложение в функцию компонент, для того чтобы связать наше приложение и контекст
+  <ContextProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ContextProvider>
 );

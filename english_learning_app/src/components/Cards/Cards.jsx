@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import CSSModules from 'react-css-modules';
+//import { glContext } from '../../Context/MyContext';
 import style from './cards.module.scss';
 
 function Cards(props) {
-  const {english, transcription, russian, count, vocabulary, handleCount} = props;
-
+  //const {dataContext, setDataContext} = useContext(glContext);
+  const {english, transcription, russian, count, dataContext, handleCount} = props;
+  // console.log(dataContext);
   //перевод слова при клике на кнопку
   const [isVisible, setVisible] = useState(false);
 
   const handleShow = () => {
     setVisible(!isVisible);
-    handleCount(vocabulary[count].id);
+    handleCount(dataContext[count].id);
 
   };
 

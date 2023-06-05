@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import style from './notfound.module.scss';
-import img from './—Pngtree—error 404 page not found_8452726.png'
+import img from './notfound.png';
 
 function NotFound() {
   return (
