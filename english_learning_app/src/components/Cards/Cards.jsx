@@ -17,7 +17,7 @@ function Cards(props) {
   };
 
    //фокус на кнопку
-  const btnRef = useRef();
+  const btnRef = useRef(null);
 
   useEffect(() => {
     btnRef.current.focus()

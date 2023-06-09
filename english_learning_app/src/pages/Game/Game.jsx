@@ -8,7 +8,8 @@ import style from './game.module.scss';
 function Game() {
   const {dataContext, setDataContext} = useContext(glContext); 
 
-  const [count, setCount] = useState(0)//handlePrev & Next
+  //const [count, setCount] = useState(0)//handlePrev & Next
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
   
   const {learnedWords, setlearnedWords} = useState(false);//handleCount
   const [learnedWordsIndex, setlearnedWordsIndex] = useState([]);//
@@ -18,20 +19,20 @@ function Game() {
 
   //Prev card
   const handlePrev = () => {
-    if (count === 0) {
-      setCount(dataContext.length - 1)
+    if (currentCardIndex === 0) {
+      setCurrentCardIndex(dataContext.length - 1)
     } else {
-      setCount(count - 1)
+      setCurrentCardIndex(currentCardIndex - 1)
     }
-  }
+  };
   //Next card
   const handleNext = () => {
-    if (count === dataContext.length - 1) {
-      setCount(dataContext.length - (dataContext.length - 1));
+    if (currentCardIndex === dataContext.length - 1) {
+      setCurrentCardIndex(0);
     } else {
-      setCount(count + 1)
-    };
-  }
+      setCurrentCardIndex(currentCardIndex + 1)
+    }
+  };
 
   //счётчик выученных слов
   const handleCount = (id) => {
@@ -63,13 +64,14 @@ function Game() {
       <button onClick={handlePrev} styleName='prevnext'>prev</button>
       {dataContext.map(item => 
              <Cards 
-             english={dataContext[count].english}
-             transcription={dataContext[count].transcription}
-             russian={dataContext[count].russian}
+             english={dataContext[currentCardIndex].english}
+             transcription={dataContext[currentCardIndex].transcription}
+             russian={dataContext[currentCardIndex].russian}
              handleCount={handleCount}
-             count = {count}
+             count = {currentCardIndex}
              dataContext={dataContext} 
-             key={count}/>
+             key={currentCardIndex}
+             />
         )}
       <button onClick={handleNext} styleName='prevnext'>next</button>
     </div>

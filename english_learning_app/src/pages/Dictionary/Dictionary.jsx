@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { glContext } from '../../Context/MyContext';
 import Table from '../../components/Table/Table';
+import AddWord from '../../components/AddWord/AddWord';
 import CSSModules from 'react-css-modules';
 import style from './dictionary.module.scss';
 
@@ -32,26 +33,31 @@ function Dictionary() {
   return (
     <div styleName="table">
       <table styleName='table_container'>
-        <tr styleName='table_header'>
-          <td><div styleName='table_header_cell'>English</div></td>
-          <td><div styleName='table_header_cell'>Transcription</div></td>
-          <td><div styleName='table_header_cell'>Russian</div></td>
-          <td><div styleName='table_header_cell'>Tags</div></td>
-          <td><div styleName='table_header_cell'>Changes</div></td>
-        </tr>
-        <tr>
-          {dataContext?.map((item) => {
-              return (
-                <Table 
-                  {...item}
-                  isEdit={false}
-                  key = {item.id.toString()}
-                  editWord = {editWord}>
-                </Table>)
-              }
-            )
-          }
-        </tr>
+      <AddWord />
+        <thead>
+          <tr styleName='table_header'>
+            <td><div styleName='table_header_cell'>English</div></td>
+            <td><div styleName='table_header_cell'>Transcription</div></td>
+            <td><div styleName='table_header_cell'>Russian</div></td>
+            <td><div styleName='table_header_cell'>Tags</div></td>
+            <td><div styleName='table_header_cell'>Changes</div></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {dataContext?.map((item) => {
+                return (
+                  <Table 
+                    {...item}
+                    isEdit={false}
+                    key = {item.id.toString()}
+                    editWord = {editWord}>
+                  </Table>)
+                }
+              )
+            }
+          </tr>
+        </tbody>
       </table>
     </div>
   );
