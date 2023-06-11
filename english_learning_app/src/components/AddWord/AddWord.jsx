@@ -6,9 +6,20 @@ import style from "./addword.module.scss";
 
 function AddWord(props) {
     //const {isValid, editChange} = props;
-    const {addWord, setAddWord} = useContext(glContext);
+    const {addWord} = useContext(glContext);
     const [inputWord, setInputWord] = useState(props);
     const [isUnword, setIsUnword] = useState(true);
+
+    const [addNewWord, setAddNewWord] = useState(false);
+    const [btnAdd, setBtnAdd] = useState(true);
+
+    let showAddWord;
+    if (addNewWord) showAddWord = "showAddWord";
+
+    const showAddWordForm = () => {
+        setAddNewWord(!addNewWord);
+        setBtnAdd(!btnAdd);
+    };
 
     const handleChangeInput = (e) => {
         setInputWord({...inputWord,
@@ -44,23 +55,35 @@ function AddWord(props) {
         ) {
             console.log("Please, fill in all fields");
         } else {
-            console.log("Form data", inputWord);
+            console.log("Form parameters:", inputWord);
             addWord(inputWord);
             setIsUnword();
+            alert ("New word was added");
+            clearInputs();
         }
     }
 
     const clearInputs = () => {
-        setIsUnword();
+        showAddWordForm();
     };
 
   return (
     <>
         <div styleName='newWord'>
+            
             <input type="text" placeholder='Enter a word in English' name='english' value={inputWord.english || ""} onChange={handleChangeInput} />
             <input type="text" placeholder='Enter the transcription of the word' name='transcription' value={inputWord.transcription || ""} onChange={handleChangeInput} />
             <input type="text" placeholder='Enter a word in Russian' name='russian' value={inputWord.russian || ""} onChange={handleChangeInput} />
             <input type="text" placeholder='Enter the word tag' name='tags' value={inputWord.tags || ""} onChange={handleChangeInput} />
+            {/* <div>
+            {isUnword ? <button styleName="btnSave" onClick={onSubmit} disabled="">Save</button>
+              : <button styleName="btnSave">Edit</button>}
+            <button styleName="btnClear" onClick={clearInputs}>Delete</button>
+            </div> */}
+            {/* <div styleName="table_buttons">
+                <button type="button" onClick={onSubmit} styleName={` table_save ${isUnword ? "disabled" : ""}`}>Save</button>
+                <button styleName="" onClick={clearInputs}>Clear</button>
+          </div> */}
           <div>
           {isUnword ? <button styleName="btnSave" disabled = "">Save</button>
               : <button styleName="btnSave" onClick={onSubmit}>Save</button>}

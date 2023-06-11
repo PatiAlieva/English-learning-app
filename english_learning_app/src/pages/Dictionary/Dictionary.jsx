@@ -6,10 +6,33 @@ import AddWord from '../../components/AddWord/AddWord';
 import CSSModules from 'react-css-modules';
 import style from './dictionary.module.scss';
 
-function Dictionary() {
-  const {dataContext, setDataContext} = useContext(glContext); 
+function Dictionary(props) {
+  const {dataContext, updateWords, deleteWords} = useContext(glContext); 
 
   const [dictionary, setDictionary] = useState(false);
+  const [inputWord, setInputWord] = useState(props);
+  const [clicked, setClicked] = useState(false);
+  const [isOnWord, setIsOnWord] = useState(true);
+
+  const onChange = (e) => {
+    setInputWord({
+      ...inputWord, [e.target.name]: e.target.value,
+    });
+  };
+
+  useEffect(() => {
+    if (
+      inputWord.id === "" ||
+      inputWord.english === "" ||
+      inputWord.transcription === "" ||
+      inputWord.russian === "" ||
+      inputWord.tags === ""
+    ) {
+      setIsOnWord(true);
+    } else {
+      setIsOnWord(false);
+    }
+  }, [inputWord]);
 
   useEffect (() => {
     setDictionary(dataContext)
