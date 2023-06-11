@@ -2,10 +2,17 @@ import {BrowserRouter as Router, Routes, Route, NavLink} from "react-router-dom"
 import Header from '../../components/Header/Header';
 import {Dictionary, Game, Home, NotFound} from '../index';
 import Footer from '../../components/Footer/Footer';
+import { inject, observer } from "mobx-react";
+import { useEffect } from "react";
 import './App.scss';
 
 
-function App() {
+function App({wordsStore}) {
+
+  useEffect(() => {
+    wordsStore.loadData()
+  }, [])
+
   return (
     <Router>
       <div className="App">
@@ -24,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default inject(['wordsStore'])(observer(App));

@@ -1,12 +1,30 @@
-import React from 'react';
-import data from '../../data.json';
+//import data from '../../data.json';
 import Table from '../../components/Table/Table';
+import { observer, inject} from 'mobx-react';
+import { useState } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './dictionary.module.scss';
 
-function Dictionary() {
+function Dictionary({wordsStore}) {
+
+  const [wordsList, setWordsList] = useState(false)
+
+  const editWords = (id, english, transcription, russian, tags) => {
+    const copyWordsList = [...wordsList]
+    const resultEditWordsList = copyWordsList.map(item => {
+      if (item.id === id) {
+        item.english = english
+        item.transcription = transcription
+        item.russian = russian
+        item.tags = tags
+        return item
+      }
+      return item
+    })
+    setWordsList(resultEditWordsList)
+  }
   return (
-    <div styleName="table">
+    <div styleName='table'>
       <table styleName='table_container'>
         <thead>
           <tr>
@@ -19,16 +37,18 @@ function Dictionary() {
         </thead>
         <tbody>
           {
-          data.map((item) =>
-            <Table 
-              isEdit={false}
-              key = {item.id} 
-              english = {item.english} 
-              transcription = {item.transcription}
-              russian = {item.russian}
-              tags = {item.tags}
-              >
-            </Table>)
+            wordsStore.words.map((item) => {
+              return <Table {...item} key={item.id.toString()} editWords={editWords}/>
+            // <Table 
+            //   isEdit={false}
+            //   key = {item.id} 
+            //   english = {item.english} 
+            //   transcription = {item.transcription}
+            //   russian = {item.russian}
+            //   tags = {item.tags}
+            //   >
+            // </Table>
+            })
           }
         </tbody>
       </table>
@@ -36,4 +56,4 @@ function Dictionary() {
   );
 };
 
-export default CSSModules(Dictionary, style);
+export default inject(['wordsStore'])(observer(CSSModules(Dictionary, style)));
